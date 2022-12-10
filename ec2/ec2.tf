@@ -16,6 +16,7 @@ variable "iam_role_name" {
 variable "key_pair_name" {
   type        = string
   description = "keypair to utilize"
+  default = "devops-kp"
 
 }
 
@@ -71,10 +72,10 @@ resource "aws_instance" "web_server" {
 
   # best practices as per checkov scanner
 
-  # monitoring = true
-  # ebs_optimized = true
-  # root_block_device {
-  # encrypted     = true
-  # }
+  monitoring = true
+  ebs_optimized = true
+  root_block_device {
+  encrypted     = true
+  }
 
 }
